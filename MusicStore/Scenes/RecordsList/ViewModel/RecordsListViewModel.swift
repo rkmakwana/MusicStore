@@ -9,5 +9,8 @@
 import Foundation
 
 protocol RecordsListViewModel {
+    var numberOfRows: Int { get }
     func viewDidLoad()
+    func fetchList()
+    func configure(cell: RecordsCellView, for indexPath: IndexPath)
 }

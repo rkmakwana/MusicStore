@@ -9,5 +9,9 @@
 import Foundation
 
 protocol RecordsListView: class {
-    
+    func reloadTable()
+    func showAlert(title: String, message: String)
+    func showLoader()
+    func hideLoader()
+    func displayNoResultsView(status: Bool)
 }
