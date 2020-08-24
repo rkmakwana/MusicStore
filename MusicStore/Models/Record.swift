@@ -16,4 +16,16 @@ struct Record: Codable {
     var artworkUrl100: URL?
     let collectionPrice: Double
     let releaseDate: Date
+    
+    // For managing selection
+    var selected: Bool?
+    public var isSelected: Bool {
+        if let status = selected {
+            return status
+        } else {
+            return false
+        }
+    }
+    
+    
 }

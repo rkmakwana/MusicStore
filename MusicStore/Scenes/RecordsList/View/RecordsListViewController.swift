@@ -177,6 +177,13 @@ extension RecordsListViewController: UITableViewDataSource, UITableViewDelegate 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RecordsTableViewCell
+        viewModel.select(cell: cell, for: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    
 }
 
 // MARK:- FeedsView

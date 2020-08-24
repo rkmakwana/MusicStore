@@ -37,6 +37,15 @@ class RecordsListViewModelImplementation: RecordsListViewModel {
         let feed = records[indexPath.row]
         cell.configure(with: feed)
     }
+    
+    func select(cell: RecordsCellView, for indexPath: IndexPath) {
+        var feed = records[indexPath.row]
+        feed.selected = !feed.isSelected
+        records.remove(at: indexPath.row)
+        records.insert(feed, at: indexPath.row)
+        
+        cell.selectionChanged(isSelected: feed.isSelected)
+    }
 
 }
 

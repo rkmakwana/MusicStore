@@ -10,6 +10,7 @@ import UIKit
 
 protocol RecordsCellView {
     func configure(with record: Record)
+    func selectionChanged(isSelected: Bool)
 }
 
 class RecordsTableViewCell: UITableViewCell, RecordsCellView {
@@ -22,6 +23,7 @@ class RecordsTableViewCell: UITableViewCell, RecordsCellView {
         self.contentView.addSubview(artworkImageView)
         self.contentView.addSubview(trackNameLabel)
         self.contentView.addSubview(collectionNameLabel)
+        self.contentView.addSubview(selectionImageView)
         self.contentView.addSubview(artistNameLabel)
         self.contentView.addSubview(releasedOnLabel)
         self.contentView.addSubview(trackPriceLabel)
@@ -47,7 +49,13 @@ class RecordsTableViewCell: UITableViewCell, RecordsCellView {
         
         collectionNameLabel.topAnchor.constraint(equalTo: artistNameLabel.bottomAnchor, constant: 8).isActive = true
         collectionNameLabel.leadingAnchor.constraint(equalTo:artistNameLabel.leadingAnchor).isActive = true
-        collectionNameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20).isActive = true
+        
+        selectionImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        selectionImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8).isActive = true
+        selectionImageView.heightAnchor.constraint(equalToConstant: 24.0).isActive = true
+        selectionImageView.widthAnchor.constraint(equalToConstant: 24.0).isActive = true
+        selectionImageView.leadingAnchor.constraint(equalTo: collectionNameLabel.trailingAnchor, constant: 5).isActive = true
+        
         
         releasedOnLabel.topAnchor.constraint(equalTo: collectionNameLabel.bottomAnchor, constant: 8).isActive = true
         releasedOnLabel.leadingAnchor.constraint(equalTo:collectionNameLabel.leadingAnchor).isActive = true
@@ -68,6 +76,13 @@ class RecordsTableViewCell: UITableViewCell, RecordsCellView {
         img.clipsToBounds = true
         img.layer.borderWidth = 2.5
         img.layer.borderColor = UIColor.systemPink.cgColor
+        return img
+    }()
+    
+    let selectionImageView: UIImageView = {
+        let img = UIImageView()
+        img.contentMode = .scaleAspectFill
+        img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
     
@@ -129,6 +144,9 @@ class RecordsTableViewCell: UITableViewCell, RecordsCellView {
         let releaseDate = formattedDate(date: record.releaseDate)
         releasedOnLabel.text = "Released on: \(releaseDate)"
         
+        let imageName = (record.selected == true) ? "selected" : "unselected"
+        selectionImageView.image = UIImage(named: imageName)
+        
         
         artworkImageView.image = nil
         artworkImageView.backgroundColor = .systemPink
@@ -141,7 +159,13 @@ class RecordsTableViewCell: UITableViewCell, RecordsCellView {
         }
     }
     
-    func formattedDate(date: Date) -> String {
+    func selectionChanged(isSelected: Bool) {
+        let imageName = isSelected ? "selected" : "unselected"
+        selectionImageView.image = UIImage(named: imageName)
+        selectionImageView.setNeedsDisplay()
+    }
+    
+    private func formattedDate(date: Date) -> String {
         dateFormatter.dateFormat = "MMM dd, yyyy"
         return dateFormatter.string(from: date)
     }

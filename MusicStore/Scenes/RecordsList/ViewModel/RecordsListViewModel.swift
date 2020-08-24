@@ -12,5 +12,6 @@ protocol RecordsListViewModel {
     var numberOfRows: Int { get }
     func viewDidLoad()
     func fetchList()
+    func select(cell: RecordsCellView, for indexPath: IndexPath)
     func configure(cell: RecordsCellView, for indexPath: IndexPath)
 }
