@@ -51,6 +51,15 @@ extension RecordsListViewController {
             navigationItem.title = title
         }
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .white
+        
+        cartNavBarButtonItem = UIBarButtonItem(title: "Cart",
+                                               style: .plain,
+                                               target: self,
+                                               action: #selector(cartBtnAction(_:)))
+        cartNavBarButtonItem.tintColor = .white
+        cartNavBarButtonItem.title = "Cart"
+        navigationItem.rightBarButtonItem = cartNavBarButtonItem
     }
     
     func setupTableView() {

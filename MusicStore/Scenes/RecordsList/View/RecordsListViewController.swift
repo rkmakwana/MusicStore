@@ -13,6 +13,7 @@ class RecordsListViewController: UIViewController {
     var viewModel: RecordsListViewModel!
     
     let tableView = UITableView()
+    var cartNavBarButtonItem: UIBarButtonItem!
     var noResultsView: UIView!
     var footer: UIView!
     var pickerContainer: UIView!
@@ -41,6 +42,10 @@ class RecordsListViewController: UIViewController {
 
     @objc func dismissPicker() {
         pickerContainer.isHidden = true
+    }
+    
+    @objc func cartBtnAction(_ sender: Any?) {
+        viewModel.cartAction()
     }
 }
 
@@ -157,5 +162,15 @@ extension RecordsListViewController: RecordsListView {
     
     func updateSortOption() {
         sortByLbl.text = "Sorted by: \(viewModel.sortOption)"
+    }
+    
+    func updateCart() {
+        cartNavBarButtonItem.title = (viewModel.cartItemsCount == 0) ? "Cart" : "Cart(\(viewModel.cartItemsCount))"
+    }
+    
+    // Navigate to Cart Scene
+    func navigateToCart(viewController: CartView) {
+        let viewController = viewController as! CartViewController
+        self.show(viewController, sender: nil)
     }
 }

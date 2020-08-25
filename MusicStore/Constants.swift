@@ -10,6 +10,7 @@ import Foundation
 
 struct AppConstants {
     static let title = "My Music"
+    static let globalDateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
     static let defaultDateFormat = "MMM dd, yyyy"
 }
 

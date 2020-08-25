@@ -10,6 +10,7 @@ import UIKit
 
 protocol RecordsCellView {
     func configure(with record: Record)
+    func hideSelection()
 }
 
 class RecordsTableViewCell: UITableViewCell, RecordsCellView {
@@ -156,6 +157,10 @@ class RecordsTableViewCell: UITableViewCell, RecordsCellView {
                 }
             }
         }
+    }
+    
+    func hideSelection() {
+        selectionImageView.isHidden = true
     }
     
     private func formattedDate(date: Date) -> String {

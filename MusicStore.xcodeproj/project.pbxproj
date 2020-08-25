@@ -20,11 +20,23 @@
 		70504D9E24F4064400D1346B /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70504D9D24F4064400D1346B /* CachedImageView.swift */; };
 		7079BC3124F5652800C4169B /* RecordsListUILayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC3024F5652800C4169B /* RecordsListUILayout.swift */; };
 		7079BC3324F5795900C4169B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC3224F5795900C4169B /* Constants.swift */; };
+		7079BC3724F59C1500C4169B /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC3624F59C1500C4169B /* Record.swift */; };
+		7079BC3924F59C1F00C4169B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC3824F59C1F00C4169B /* Error.swift */; };
+		7079BC3C24F59CD500C4169B /* RecordsListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC3B24F59CD500C4169B /* RecordsListViewMock.swift */; };
+		7079BC3E24F59CEB00C4169B /* RecordsListUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC3D24F59CEB00C4169B /* RecordsListUseCaseMock.swift */; };
+		7079BC4024F59D0200C4169B /* RecordsListTableCellMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC3F24F59D0200C4169B /* RecordsListTableCellMock.swift */; };
+		7079BC4324F59F1F00C4169B /* RecordsListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC4224F59F1F00C4169B /* RecordsListTests.swift */; };
+		7079BC4824F5B54900C4169B /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC4724F5B54900C4169B /* CartView.swift */; };
+		7079BC4C24F5B55F00C4169B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC4B24F5B55F00C4169B /* CartViewModel.swift */; };
+		7079BC4E24F5B56E00C4169B /* CartViewModelImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC4D24F5B56E00C4169B /* CartViewModelImplementation.swift */; };
+		7079BC5024F5B59000C4169B /* CartUILayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC4F24F5B59000C4169B /* CartUILayout.swift */; };
+		7079BC5224F5B5BD00C4169B /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC5124F5B5BD00C4169B /* CartViewController.swift */; };
+		7079BC5524F5BDFF00C4169B /* CartViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC5424F5BDFF00C4169B /* CartViewMock.swift */; };
+		7079BC5824F5BE3100C4169B /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079BC5724F5BE3100C4169B /* CartTests.swift */; };
 		70A7F86224F2F7B90025B24B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7F86124F2F7B90025B24B /* AppDelegate.swift */; };
 		70A7F86424F2F7B90025B24B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7F86324F2F7B90025B24B /* SceneDelegate.swift */; };
 		70A7F86B24F2F7BB0025B24B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70A7F86A24F2F7BB0025B24B /* Assets.xcassets */; };
 		70A7F86E24F2F7BB0025B24B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70A7F86C24F2F7BB0025B24B /* LaunchScreen.storyboard */; };
-		70A7F87924F2F7BB0025B24B /* MusicStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7F87824F2F7BB0025B24B /* MusicStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +63,19 @@
 		70504D9D24F4064400D1346B /* CachedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
 		7079BC3024F5652800C4169B /* RecordsListUILayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsListUILayout.swift; sourceTree = "<group>"; };
 		7079BC3224F5795900C4169B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7079BC3624F59C1500C4169B /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		7079BC3824F59C1F00C4169B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		7079BC3B24F59CD500C4169B /* RecordsListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsListViewMock.swift; sourceTree = "<group>"; };
+		7079BC3D24F59CEB00C4169B /* RecordsListUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsListUseCaseMock.swift; sourceTree = "<group>"; };
+		7079BC3F24F59D0200C4169B /* RecordsListTableCellMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsListTableCellMock.swift; sourceTree = "<group>"; };
+		7079BC4224F59F1F00C4169B /* RecordsListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsListTests.swift; sourceTree = "<group>"; };
+		7079BC4724F5B54900C4169B /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		7079BC4B24F5B55F00C4169B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		7079BC4D24F5B56E00C4169B /* CartViewModelImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelImplementation.swift; sourceTree = "<group>"; };
+		7079BC4F24F5B59000C4169B /* CartUILayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartUILayout.swift; sourceTree = "<group>"; };
+		7079BC5124F5B5BD00C4169B /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		7079BC5424F5BDFF00C4169B /* CartViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewMock.swift; sourceTree = "<group>"; };
+		7079BC5724F5BE3100C4169B /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
 		70A7F85E24F2F7B90025B24B /* MusicStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A7F86124F2F7B90025B24B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70A7F86324F2F7B90025B24B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +83,6 @@
 		70A7F86D24F2F7BB0025B24B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70A7F86F24F2F7BB0025B24B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70A7F87424F2F7BB0025B24B /* MusicStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		70A7F87824F2F7BB0025B24B /* MusicStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicStoreTests.swift; sourceTree = "<group>"; };
 		70A7F87A24F2F7BB0025B24B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				70504D7624F38BB600D1346B /* RecordsList */,
+				7079BC4424F5B4E300C4169B /* Cart */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -108,7 +133,6 @@
 		70504D7624F38BB600D1346B /* RecordsList */ = {
 			isa = PBXGroup;
 			children = (
-				70504D8924F3A98D00D1346B /* TableViewCell */,
 				70504D7924F38DFF00D1346B /* View */,
 				70504D7A24F38E0A00D1346B /* ViewModel */,
 				70504D7B24F38E3D00D1346B /* UseCases */,
@@ -177,6 +201,79 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
+		7079BC3424F59A3D00C4169B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7079BC3624F59C1500C4169B /* Record.swift */,
+				7079BC3824F59C1F00C4169B /* Error.swift */,
+				7079BC3A24F59CBC00C4169B /* RecordsList */,
+				7079BC5324F5BDE200C4169B /* Cart */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7079BC3A24F59CBC00C4169B /* RecordsList */ = {
+			isa = PBXGroup;
+			children = (
+				7079BC3B24F59CD500C4169B /* RecordsListViewMock.swift */,
+				7079BC3D24F59CEB00C4169B /* RecordsListUseCaseMock.swift */,
+				7079BC3F24F59D0200C4169B /* RecordsListTableCellMock.swift */,
+			);
+			path = RecordsList;
+			sourceTree = "<group>";
+		};
+		7079BC4124F59F0200C4169B /* RecordsListTests */ = {
+			isa = PBXGroup;
+			children = (
+				7079BC4224F59F1F00C4169B /* RecordsListTests.swift */,
+			);
+			path = RecordsListTests;
+			sourceTree = "<group>";
+		};
+		7079BC4424F5B4E300C4169B /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				7079BC4524F5B50B00C4169B /* View */,
+				7079BC4624F5B51F00C4169B /* ViewModel */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		7079BC4524F5B50B00C4169B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7079BC4724F5B54900C4169B /* CartView.swift */,
+				7079BC4F24F5B59000C4169B /* CartUILayout.swift */,
+				7079BC5124F5B5BD00C4169B /* CartViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7079BC4624F5B51F00C4169B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7079BC4B24F5B55F00C4169B /* CartViewModel.swift */,
+				7079BC4D24F5B56E00C4169B /* CartViewModelImplementation.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7079BC5324F5BDE200C4169B /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				7079BC5424F5BDFF00C4169B /* CartViewMock.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		7079BC5624F5BE1D00C4169B /* CartTests */ = {
+			isa = PBXGroup;
+			children = (
+				7079BC5724F5BE3100C4169B /* CartTests.swift */,
+			);
+			path = CartTests;
+			sourceTree = "<group>";
+		};
 		70A7F85524F2F7B90025B24B = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +299,7 @@
 				70504D9524F3AEB500D1346B /* Network */,
 				70504D7424F38B5400D1346B /* Utils */,
 				70504D8C24F3A9CD00D1346B /* Models */,
+				70504D8924F3A98D00D1346B /* TableViewCell */,
 				70504D7524F38B6D00D1346B /* Scenes */,
 				70A7F86A24F2F7BB0025B24B /* Assets.xcassets */,
 				70A7F86C24F2F7BB0025B24B /* LaunchScreen.storyboard */,
@@ -214,7 +312,9 @@
 		70A7F87724F2F7BB0025B24B /* MusicStoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				70A7F87824F2F7BB0025B24B /* MusicStoreTests.swift */,
+				7079BC3424F59A3D00C4169B /* Helpers */,
+				7079BC4124F59F0200C4169B /* RecordsListTests */,
+				7079BC5624F5BE1D00C4169B /* CartTests */,
 				70A7F87A24F2F7BB0025B24B /* Info.plist */,
 			);
 			path = MusicStoreTests;
@@ -273,6 +373,7 @@
 					};
 					70A7F87324F2F7BB0025B24B = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 						TestTargetID = 70A7F85D24F2F7B90025B24B;
 					};
 				};
@@ -325,15 +426,20 @@
 				7079BC3124F5652800C4169B /* RecordsListUILayout.swift in Sources */,
 				70504D8624F38ECD00D1346B /* RecordsListViewModelImplementation.swift in Sources */,
 				70504D8824F38EDB00D1346B /* RecordsListView.swift in Sources */,
+				7079BC4C24F5B55F00C4169B /* CartViewModel.swift in Sources */,
+				7079BC4E24F5B56E00C4169B /* CartViewModelImplementation.swift in Sources */,
 				7079BC3324F5795900C4169B /* Constants.swift in Sources */,
 				70504D8E24F3A9DC00D1346B /* Record.swift in Sources */,
 				70504D8B24F3A9AC00D1346B /* RecordsTableViewCell.swift in Sources */,
 				70504D8424F38EBD00D1346B /* RecordsListViewModel.swift in Sources */,
 				70A7F86224F2F7B90025B24B /* AppDelegate.swift in Sources */,
+				7079BC5224F5B5BD00C4169B /* CartViewController.swift in Sources */,
 				70504D9C24F3AF8F00D1346B /* FetchRecordsRequest.swift in Sources */,
 				70504D9E24F4064400D1346B /* CachedImageView.swift in Sources */,
+				7079BC5024F5B59000C4169B /* CartUILayout.swift in Sources */,
 				70504D9024F3AA8C00D1346B /* RecordsListViewController.swift in Sources */,
 				70A7F86424F2F7B90025B24B /* SceneDelegate.swift in Sources */,
+				7079BC4824F5B54900C4169B /* CartView.swift in Sources */,
 				70504D9924F3AEB600D1346B /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,7 +448,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70A7F87924F2F7BB0025B24B /* MusicStoreTests.swift in Sources */,
+				7079BC4324F59F1F00C4169B /* RecordsListTests.swift in Sources */,
+				7079BC5524F5BDFF00C4169B /* CartViewMock.swift in Sources */,
+				7079BC3E24F59CEB00C4169B /* RecordsListUseCaseMock.swift in Sources */,
+				7079BC3C24F59CD500C4169B /* RecordsListViewMock.swift in Sources */,
+				7079BC4024F59D0200C4169B /* RecordsListTableCellMock.swift in Sources */,
+				7079BC3924F59C1F00C4169B /* Error.swift in Sources */,
+				7079BC3724F59C1500C4169B /* Record.swift in Sources */,
+				7079BC5824F5BE3100C4169B /* CartTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +634,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MusicStoreTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -531,6 +645,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brainforked.MusicStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicStore.app/MusicStore";
@@ -542,6 +658,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MusicStoreTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -552,6 +669,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brainforked.MusicStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicStore.app/MusicStore";

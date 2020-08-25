@@ -70,7 +70,7 @@ class NetworkClient {
                 let str = String(decoding: data, as: UTF8.self)
                 let decoder = JSONDecoder()
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+                dateFormatter.dateFormat = AppConstants.globalDateFormat
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)
                 let decodedResponse = try decoder.decode(T.self, from: Data(str.utf8))
                 onSuccess(decodedResponse)

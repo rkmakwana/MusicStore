@@ -21,4 +21,7 @@ protocol RecordsListViewModel {
     var totalSortOptions: Int { get }
     func sortOption(at index: Int) -> String
     func changeSortOption(index: Int)
+    
+    var cartItemsCount: Int { get }
+    func cartAction()
 }

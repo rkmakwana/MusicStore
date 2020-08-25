@@ -10,7 +10,7 @@ import Foundation
 
 class RecordsListViewModelImplementation: RecordsListViewModel {
     
-    private enum SortOption: Int, CustomStringConvertible, CaseIterable {
+    enum SortOption: Int, CustomStringConvertible, CaseIterable {
         case date       // 0
         case artist     // 1
         case track      // 2
@@ -68,6 +68,10 @@ class RecordsListViewModelImplementation: RecordsListViewModel {
         SortOption.allCases.count
     }
     
+    var cartItemsCount: Int {
+        records.filter({ ($0.isSelected ) }).count
+    }
+    
     func viewDidLoad() {
         view?.showLoader()
         fetchRecords()
@@ -79,13 +83,14 @@ class RecordsListViewModelImplementation: RecordsListViewModel {
     }
     
     func configure(cell: RecordsCellView, for indexPath: IndexPath) {
-        let feed = dataSource[indexPath.row]
-        cell.configure(with: feed)
+        let record = dataSource[indexPath.row]
+        cell.configure(with: record)
     }
     
     func select(cell: RecordsCellView, for indexPath: IndexPath) {
         let feed = dataSource[indexPath.row]
         feed.selected = !feed.isSelected
+        view?.updateCart()
     }
     
     func setSearch(active: Bool) {
@@ -114,6 +119,15 @@ class RecordsListViewModelImplementation: RecordsListViewModel {
     
     func sortOption(at index: Int) -> String {
         return SortOption.allCases[index].description
+    }
+    
+    func cartAction() {
+        let selected = records.filter({ $0.isSelected })
+        let viewController = CartViewController()
+        let cartViewModel = CartViewModelImplementation(view: viewController,
+                                                        records: selected)
+        viewController.viewModel = cartViewModel
+        view?.navigateToCart(viewController: viewController)
     }
 
 }
@@ -158,6 +172,7 @@ extension RecordsListViewModelImplementation {
             case .date:
                 return idx1.releaseDate < idx2.releaseDate
             case .price:
+                // Price sort order is defined as descending
                 return idx1.collectionPrice > idx2.collectionPrice
             case .track:
                 return idx1.trackName < idx2.trackName

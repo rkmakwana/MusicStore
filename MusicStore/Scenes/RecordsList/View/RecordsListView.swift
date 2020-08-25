@@ -15,4 +15,6 @@ protocol RecordsListView: class {
     func hideLoader()
     func displayNoResultsView(status: Bool)
     func updateSortOption()
+    func updateCart()
+    func navigateToCart(viewController: CartView)
 }
