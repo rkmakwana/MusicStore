@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias FetchRecordsCompletionHandler = (_ response: [Record]?, _ error: Error?) -> Void
+
 protocol RecordsListUseCase {
-    
+    func getRecords(completion: @escaping FetchRecordsCompletionHandler)
 }

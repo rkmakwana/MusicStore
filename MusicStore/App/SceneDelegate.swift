@@ -21,10 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         let viewController = RecordsListViewController()
-        
-        // Bind the viewmodel and other components by initialising the configurator
-        let _ = RecordsListConfigurator(viewController: viewController)
-        
         let navigationController = UINavigationController(rootViewController: viewController)
         self.window?.rootViewController = navigationController
         self.window?.windowScene = windowScene

@@ -10,4 +10,12 @@ import Foundation
 
 class RecordsListUseCaseImplementation: RecordsListUseCase {
     
+    func getRecords(completion: @escaping FetchRecordsCompletionHandler) {
+        FetchRecordsRequest().dispatch(onSuccess: { (response) in
+            completion(response.results, nil)
+        }) { error in
+            completion(nil, error)
+        }
+    }
+    
 }
