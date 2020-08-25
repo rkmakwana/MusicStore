@@ -15,7 +15,7 @@ struct FetchRecordsRequestResponse: Codable {
 struct FetchRecordsRequest: APIEndpoint, Codable {
     
     func endpoint() -> String {
-        return "https://itunes.apple.com/search?term=all"
+        return Endpoints.fetchRecordsEndpoint
     }
     
     func dispatch(

@@ -14,26 +14,16 @@ class RecordsListViewController: UIViewController {
     
     let tableView = UITableView()
     var noResultsView: UIView!
+    var footer: UIView!
+    var pickerContainer: UIView!
+    
+    var sortByLbl: UILabel!
     var loader: UIActivityIndicatorView!
     var safeArea: UILayoutGuide!
+    var searchController: UISearchController!
     
-    // No storyboard or xib used, loadView creates the required UI for this scene
-    override func loadView() {
-        super.loadView()
-        
-        viewModel = RecordsListViewModelImplementation(view: self,
-                                                       useCase: RecordsListUseCaseImplementation())
-        
-        view.backgroundColor = .white
-        safeArea = view.layoutMarginsGuide
-        
-        navigationBarAppearance()
-        setupTableView()
-        setupNoFeedsView()
-        setupLoader()
-        
-    }
-
+    let cellIdentifier = "cell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,114 +34,35 @@ class RecordsListViewController: UIViewController {
     @objc func retry(_ sender: Any?) {
         viewModel.fetchList()
     }
+    
+    @objc func changeSortOption(_ sender: Any?) {
+        pickerContainer.isHidden = false
+    }
 
+    @objc func dismissPicker() {
+        pickerContainer.isHidden = true
+    }
 }
 
-// MARK:- Create UI
-extension RecordsListViewController {
+//MARK:- UISearchControl update
+extension RecordsListViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     
-    func navigationBarAppearance() {
-        self.title = "My Music"
-        if #available(iOS 13.0, *) {
-            let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.configureWithOpaqueBackground()
-            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-            navBarAppearance.backgroundColor = .systemGreen
-            navigationController?.navigationBar.standardAppearance = navBarAppearance
-            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        } else {
-            navigationController?.navigationBar.barTintColor = .systemGreen
-            navigationController?.navigationBar.tintColor = .white
-            navigationController?.navigationBar.isTranslucent = false
-            navigationItem.title = title
+    func didPresentSearchController(_ searchController: UISearchController) {
+        viewModel.setSearch(active: true)
+        reloadTable()
+        footer.isHidden = true
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        viewModel.setSearch(active: false)
+        reloadTable()
+        footer.isHidden = false
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let key = searchController.searchBar.text {
+            viewModel.search(for: key.trimmingCharacters(in: .whitespaces))
         }
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    func setupTableView() {
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        let constraints = [
-            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.tableFooterView = UIView()
-        
-        tableView.register(RecordsTableViewCell.self, forCellReuseIdentifier: "cell")
-    }
-    
-    func setupLoader() {
-        if #available(iOS 13.0, *) {
-            loader = UIActivityIndicatorView(style: .large)
-        } else {
-            loader = UIActivityIndicatorView(style: .gray)
-        }
-        loader.center = self.view.center
-        loader.hidesWhenStopped = true
-        view.addSubview(loader)
-    }
-    
-    func setupNoFeedsView() {
-        let container = UIView()
-        view.addSubview(container)
-        container.translatesAutoresizingMaskIntoConstraints = false
-        var constraints = [
-            container.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            container.leftAnchor.constraint(equalTo: view.leftAnchor),
-            container.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            container.rightAnchor.constraint(equalTo: view.rightAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
-        
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "noResults")
-        container.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        constraints = [
-            imageView.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.5),
-            imageView.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: -60),
-            imageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-            imageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
-        ]
-        NSLayoutConstraint.activate(constraints)
-        
-        let label = UILabel()
-        label.text = "No results found"
-        label.font = UIFont.boldSystemFont(ofSize: 26)
-        label.textColor = .systemPink
-        container.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        constraints = [
-            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
-            label.centerXAnchor.constraint(equalTo: imageView.centerXAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
-        
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 46))
-        button.setTitle("Try again", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.showsTouchWhenHighlighted = true
-        button.addTarget(self, action: #selector(retry(_:)), for: .touchDownRepeat)
-        container.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isUserInteractionEnabled = true
-        constraints = [
-            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
-            button.centerXAnchor.constraint(equalTo: label.centerXAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
-        
-        
-        noResultsView = container
-        noResultsView.isHidden = true
     }
     
 }
@@ -172,18 +83,40 @@ extension RecordsListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RecordsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RecordsTableViewCell
         viewModel.configure(cell: cell, for: indexPath)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RecordsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RecordsTableViewCell
         viewModel.select(cell: cell, for: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
+}
+
+// MARK:- Sort order
+extension RecordsListViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return viewModel.totalSortOptions
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.sortOption(at: row)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        viewModel.changeSortOption(index: row)
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+    }
+
 }
 
 // MARK:- FeedsView
@@ -220,5 +153,9 @@ extension RecordsListViewController: RecordsListView {
             noResultsView.isHidden = true
             tableView.isHidden = false
         }
+    }
+    
+    func updateSortOption() {
+        sortByLbl.text = "Sorted by: \(viewModel.sortOption)"
     }
 }

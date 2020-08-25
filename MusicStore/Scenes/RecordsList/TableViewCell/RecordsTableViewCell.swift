@@ -10,7 +10,6 @@ import UIKit
 
 protocol RecordsCellView {
     func configure(with record: Record)
-    func selectionChanged(isSelected: Bool)
 }
 
 class RecordsTableViewCell: UITableViewCell, RecordsCellView {
@@ -144,7 +143,7 @@ class RecordsTableViewCell: UITableViewCell, RecordsCellView {
         let releaseDate = formattedDate(date: record.releaseDate)
         releasedOnLabel.text = "Released on: \(releaseDate)"
         
-        let imageName = (record.selected == true) ? "selected" : "unselected"
+        let imageName = (record.selected == true) ? ImageNames.selectedCheckMark : ImageNames.unselectedCheckMark
         selectionImageView.image = UIImage(named: imageName)
         
         
@@ -159,14 +158,8 @@ class RecordsTableViewCell: UITableViewCell, RecordsCellView {
         }
     }
     
-    func selectionChanged(isSelected: Bool) {
-        let imageName = isSelected ? "selected" : "unselected"
-        selectionImageView.image = UIImage(named: imageName)
-        selectionImageView.setNeedsDisplay()
-    }
-    
     private func formattedDate(date: Date) -> String {
-        dateFormatter.dateFormat = "MMM dd, yyyy"
+        dateFormatter.dateFormat = AppConstants.defaultDateFormat
         return dateFormatter.string(from: date)
     }
 }

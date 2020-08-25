@@ -14,4 +14,5 @@ protocol RecordsListView: class {
     func showLoader()
     func hideLoader()
     func displayNoResultsView(status: Bool)
+    func updateSortOption()
 }

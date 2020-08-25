@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Record: Codable {
+class Record: Codable, Hashable {
+    
     let trackId: Int
     let artistName: String
     let collectionName: String?
@@ -27,5 +28,13 @@ struct Record: Codable {
         }
     }
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(trackId)
+    }
+    
+    // Assuming tracks with same name as duplicates
+    static func == (lhs: Record, rhs: Record) -> Bool {
+        return (lhs.trackName == rhs.trackName)
+    }
     
 }
